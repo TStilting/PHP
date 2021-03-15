@@ -10,7 +10,7 @@
  <body>
  <?php
   for($foto = 1; $foto < 9; $foto++) {
-   echo "<img src='../Fotos/Turtle".$foto.".jpg'";
+   echo "<img src='../Fotos/Turtle".$foto.".jpg'>";
   }
   ?>
  </body>
