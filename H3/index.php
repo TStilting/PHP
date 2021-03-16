@@ -10,9 +10,17 @@
  <body>
  <?php
   for($foto = 1; $foto < 9; $foto++) {
-   echo "<img src='../Fotos/Turtle".$foto.".jpg'>";
+   echo "<img src='../Fotos/Turtle/Turtle".$foto.".jpg'>";
   }
+  $bomen = array("img_0050.jpg", "lillypilly1.jpg","Maranchery_Biyyam_Kayal_kandal.jpg");
+
+  foreach($bomen as $boom) {
+      echo "<img src='../Fotos/Boom/".$boom."'>";
+  }
+
   ?>
+ <a href="index2.php">3.2</a>
+ <a href="index3.php">3.3</a>
  </body>
 </html>
 
