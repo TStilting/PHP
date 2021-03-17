@@ -21,6 +21,9 @@
   ?>
  <a href="index2.php">3.2</a>
  <a href="index3.php">3.3</a>
+ <a href="index4.php">3.4</a>
+ <a href="index5.php">3.5</a>
+ <a href="index6.php">3.6</a>
  </body>
 </html>
 
