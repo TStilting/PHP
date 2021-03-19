@@ -27,5 +27,6 @@ for($i = 0; $i < 10; $i++) {
  <a href="index4.php">3.4</a>
  <a href="index5.php">3.5</a>
  <a href="index6.php">3.6</a>
+ <a href="index7.php">3.7</a>
  </body>
 </html>

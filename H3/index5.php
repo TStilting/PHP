@@ -33,5 +33,6 @@ echo "De prijs: ".$bedrag." euro. ";
 <a href="index3.php">3.3</a>
 <a href="index4.php">3.4</a>
 <a href="index6.php">3.6</a>
+<a href="index7.php">3.7</a>
 </body>
 </html>

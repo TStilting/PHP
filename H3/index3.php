@@ -24,5 +24,6 @@ for($x = 35; $x > 25; $x--) {
 <a href="index4.php">3.4</a>
 <a href="index5.php">3.5</a>
 <a href="index6.php">3.6</a>
+<a href="index7.php">3.7</a>
 </body>
 </html>

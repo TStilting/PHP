@@ -36,5 +36,6 @@ for($foto = 1; $foto < 9; $foto++) {
 <a href="index3.php">3.3</a>
 <a href="index5.php">3.5</a>
 <a href="index6.php">3.6</a>
+<a href="index7.php">3.7</a>
 </body>
 </html>
