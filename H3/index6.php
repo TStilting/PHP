@@ -12,6 +12,19 @@
 <body>
 <?php
 $clubs = array( "De spartelkuikens", "De waterbuffels", "Plonsmderin", "Bommetje");
+$clubs[0] = 25;
+$clubs[1] = 32;
+$clubs[2] = 11;
+$clubs[3] = 23;
+
+print("<ul>");
+foreach($clubs as $aantal) {
+
+    print "<img src='../Fotos/Overig/Zwemmer.jpg'>";
+
+    print("<br>");
+}
+print("</ul>");
 
 
 
