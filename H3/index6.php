@@ -20,7 +20,12 @@ $clubs[3] = 23;
 print("<ul>");
 foreach($clubs as $aantal) {
 
-    print "<img src='../Fotos/Overig/Zwemmer.jpg'>";
+
+    for ($i = $aantal; $i >= 5; $i -= 5) {
+          print "<img src='../Fotos/Overig/Zwemmer.jpg'>";
+    }
+
+
 
     print("<br>");
 }
