@@ -3,7 +3,7 @@
 
 print "17C = ".omrekenen(17)."F<br>";
 
-print doorDrieDelen(33);
+print doorDrieDelen(33)."<br>";
 
 print achterwaards("dit ", "is ", "een ", "test ");
 
