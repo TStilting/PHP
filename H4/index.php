@@ -13,13 +13,13 @@ function omrekenen($c) {
 }
 
 function doorDrieDelen($d) {
-    if ($d / 3 == 0) {
-        $t = true;
-        return $t;
+    $t = ($d % 3 == 0) ? true : false;
+    echo $t;
+    if ($t) {
+        return "true";
     }
     else {
-        $t = false;
-        return $t;
+        return "false";
     }
 
 }
