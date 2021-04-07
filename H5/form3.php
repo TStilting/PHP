@@ -6,12 +6,11 @@ if (isset($_POST['Submit'])) {
 $email = isset($_POST['emaal']) ? $_POST['emaal'] : '';
 $wachtwoord = isset($_POST['wachtwurd']) ? $_POST['wachtwurd'] : '';
 
-if (isset($logins[$email]) && $gegevens[$email] == $wachtwoord) {
+if (isset($gegevens[$email]) && $gegevens[$email] == $wachtwoord) {
 $_SESSION['UserData']['emaal']=$gegevens[$email];
-header("location:form3.php");
-exit;
+    $zin="<p>Toegang Verleend</p>";
 } else {
-print "Geen Toegang";
+    $zin="<p>Geen Toegang</p>";
 }
 }
 
@@ -23,10 +22,29 @@ print "Geen Toegang";
     <title>fooorm</title>
 </head>
 <body>
-<form action="resultaat3.php" method="post">
-    Email <input type="email" name="emaal" value=""><br>
-    Wachtwoord <input type="password" name="wachtwurd" value=""><br>
-    <input type="submit" name="knop" value="verstuur">
+<form action="" method="post" name="Login_Form">
+    <table width="400" border="0" align="center" cellpadding="5" cellspacing="1" class="Table">
+        <?php if(isset($zin)){?>
+            <tr>
+                <td colspan="2" align="center" valign="top"><?php print $zin;?></td>
+            </tr>
+        <?php } ?>
+        <tr>
+            <td colspan="2" align="left" valign="top"><h3>Login</h3></td>
+        </tr>
+        <tr>
+            <td align="right" valign="top">Email</td>
+            <td><input name="emaal" type="text" class="Input"></td>
+        </tr>
+        <tr>
+            <td align="right">Wachtwoord</td>
+            <td><input name="wachtwurd" type="password" class="Input"></td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td><input name="Submit" type="submit" value="Login" class="Button3"></td>
+        </tr>
+    </table>
 </form>
 </body>
 </html>
