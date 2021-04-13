@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Databank: `school`
 --
-CREATE DATABASE schoool;
+--CREATE DATABASE schoool;
 USE schoool;
 -- --------------------------------------------------------
 
@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `cursist` (
   `plaats` varchar(25) DEFAULT NULL,
   `geslacht` varchar(1) DEFAULT NULL,
   `geb_datum` date DEFAULT NULL
+
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -131,6 +132,19 @@ INSERT INTO `docent` (`doc_code`, `doc_naam`, `straat`, `postcode`, `plaats`, `t
 ('PE', 'Peters', 'Breedonk 64', '4142 EC', 'Oosterhout', '01620-3429', 185.50, '1963-10-08'),
 ('SE', 'Sengers', 'Bredaseweg 2', '4344 DE', 'Bavel', NULL, 110.00, '1955-05-17'),
 ('MO', 'Mol', 'Waterstr 8', '4841 KA', 'Breda', '076-227788', 300.00, '1948-11-30');
+
+
+
+CREATE TABLE IF NOT EXISTS `logins` (
+    `email` varchar(50) DEFAULT NULL,
+    `wachtwoord` varchar(50) DEFAULT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+INSERT INTO `logins` (`email`, `wachtwoord`) VALUES
+('piet@worldonline.nl', 'doetje123'),
+('klaas@carpets.nl', 'snoepje777'),
+('truushendriks@wegweg.nl', 'arkiearkie201');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

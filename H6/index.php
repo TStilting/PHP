@@ -44,5 +44,6 @@ while ($row = $stmt->fetch()) {
 }
 ?>
 </table>
+<a href="foooorm.php">6.2</a>
 </body>
 </html>

@@ -1,5 +1,15 @@
 <?php
 
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=schoool", $username, $password);
+} catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+
 $zin = inloggen();
 
 function inloggen() {
@@ -23,7 +33,7 @@ function inloggen() {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>fooorm</title>
+    <title>foooorm</title>
 </head>
 <body>
 <form action="" method="post" name="Login_Form">
