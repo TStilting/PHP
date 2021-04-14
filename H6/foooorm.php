@@ -15,16 +15,23 @@ $zin = inloggen();
 function inloggen() {
     session_start();
     if (isset($_POST['Submit'])) {
-        $gegevens = array("piet@worldonline.nl" => "doetje123", "klaas@carpets.nl" => "snoepje777", "truushendriks@wegweg . nl" => "arkiearkie201");
-        $email = isset($_POST['emaal']) ? $_POST['emaal'] : '';
-        $wachtwoord = isset($_POST['wachtwurd']) ? $_POST['wachtwurd'] : '';
-
-        if (isset($gegevens[$email]) && $gegevens[$email] == $wachtwoord) {
-            $_SESSION['UserData']['emaal']=$gegevens[$email];
-            return "<p>Toegang Verleend</p>";
+        $email = isset($_POST['emaaal']);
+        $wachtwoord = isset($_POST['wachtwuurd']);
+        global $conn;
+        if ($email != "" && $wachtwoord != ""){
+            $stmt = $conn->prepare("select count(*) from logins where email='".$email."' and wachtwoord='".$wachtwoord."'");
+            $stmt->execute();
+            $row = $stmt->fetch();
+                if ($row == 1) {
+                    $_SESSION['UserData']['emaaal'] = $row[$email];
+                    return "<p>Toegang Verleend</p>";
+                } else {
+                    return "<p>Geen Toegang</p>";
+                }
         } else {
-            return "<p>Geen Toegang</p>";
+            return "<p>Vul alles in</p>";
         }
+
     }
 }
 
@@ -48,11 +55,11 @@ function inloggen() {
         </tr>
         <tr>
             <td align="right" valign="top">Email</td>
-            <td><input name="emaal" type="text" class="Input"></td>
+            <td><input name="emaaal" type="text" class="Input"></td>
         </tr>
         <tr>
             <td align="right">Wachtwoord</td>
-            <td><input name="wachtwurd" type="password" class="Input"></td>
+            <td><input name="wachtwuurd" type="password" class="Input"></td>
         </tr>
         <tr>
             <td> </td>
