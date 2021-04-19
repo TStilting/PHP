@@ -6,8 +6,8 @@ $password = "";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=schoool", $username, $password);
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+} catch(PDOException) {
+    echo "Connection failed";
 }
 
 $zin = inloggen();
@@ -21,9 +21,9 @@ function inloggen() {
         if ($email != "" && $wachtwoord != ""){
             $stmt = $conn->prepare("select count(*) from logins where email='".$email."' and wachtwoord='".$wachtwoord."'");
             $stmt->execute();
-            $row = $stmt->fetch();
-                if ($row == 1) {
-                    $_SESSION['UserData']['emaaal'] = $row[$email];
+            $resultaat = $stmt->fetch();
+                if ($resultaat == 1) {
+                    $_SESSION['UserData']['emaaal'] = $resultaat[$email];
                     return "<p>Toegang Verleend</p>";
                 } else {
                     return "<p>Geen Toegang</p>";
