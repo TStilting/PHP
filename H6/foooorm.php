@@ -4,26 +4,27 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=schoool", $username, $password);
-} catch(PDOException) {
-    echo "Connection failed";
-}
+
+$conn = new PDO("mysql:host=$servername;dbname=schoool", $username, $password);
+
 
 $zin = inloggen();
 
 function inloggen() {
     session_start();
     if (isset($_POST['Submit'])) {
-        $email = isset($_POST['emaaal']);
-        $wachtwoord = isset($_POST['wachtwuurd']);
+        $email = isset($_POST['emaaal']) ? $_POST['emaaal'] : "";
+        if (isset($_POST['wachtwuurd'])){
+            $wachtwoord =$_POST['wachtwuurd'] ;
+        }
+
         global $conn;
         if ($email != "" && $wachtwoord != ""){
-            $stmt = $conn->prepare("select count(*) from logins where email='".$email."' and wachtwoord='".$wachtwoord."'");
+            $query = "select count(*) from logins where email='".$email."' and wachtwoord='".$wachtwoord."'";
+            $stmt = $conn->prepare($query);
             $stmt->execute();
             $resultaat = $stmt->fetch();
-                if ($resultaat == 1) {
-                    $_SESSION['UserData']['emaaal'] = $resultaat[$email];
+                if ($resultaat[0] == 1) {
                     return "<p>Toegang Verleend</p>";
                 } else {
                     return "<p>Geen Toegang</p>";

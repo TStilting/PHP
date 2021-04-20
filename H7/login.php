@@ -1,21 +1,18 @@
 <?php
 
     session_start();
-    if (isset($_POST['Submit'])) {
-        $gegevens = array(
-                "piet@worldonline.nl" => array("wachtwoord" => "doetje123", "rol" => "gebruiker"),
-                "klaas@carpets.nl" => array("wachtwoord" => "snoepje777", "rol" => "gebruiker"),
-                "truushendriks@wegweg . nl" => array("wachtwoord" => "arkiearkie201", "rol" => "gebruiker")
-        );
-        $email = isset($_POST['eemaal']) ? $_POST['eemaal'] : '';
-        $wachtwoord = isset([$_POST['eemaal']]['wachtwoord']) ? $_POST['wachtwoord'] : '';
 
-        if (isset($gegevens[$email]) && $gegevens[$email] == $wachtwoord) {
-            $_SESSION['user'] = array("gegevens" => $_POST['eemaal'], $gegevens[$_POST['eemaal']]['wachtwoord'], $gegevens[$_POST['eemaal']]['rol']);
-            $zin = "<p>Ingelogd als: ".$_SESSION['user'] ['eemaal']."<br>Rol:".$_SESSION['user'] ['rol']."</p>";
-        } else {
-            $zin = "<p>Geen Toegang</p>";
-        }
+    $gegevens = array(
+    "piet@worldonline.nl" => array("wachtwoord" => "doetje123", "rol" => "admin"),
+    "klaas@carpets.nl" => array("wachtwoord" => "snoepje777", "rol" => "gebruiker"),
+    "truushendriks@wegweg . nl" => array("wachtwoord" => "arkiearkie201", "rol" => "gebruiker")
+);
+    if (isset($_POST['Submit'])
+        && isset($gegevens[$_POST['eemaal']]) && $gegevens[$_POST['eemaal']]['wachtwoord'] == $_POST['wachtwoord']) {
+            $_SESSION['user'] = array("eemaal" => $_POST['eemaal'], "wachtwoord" => $gegevens[$_POST['eemaal']]['wachtwoord'], "rol" => $gegevens[$_POST['eemaal']]['rol']);
+            $zin = "<p>Ingelogd als: ".$_SESSION['user']['eemaal']."<br>Rol: ".$_SESSION['user']['rol']."</p>";
+    } else {
+        $zin = "<p>Geen Toegang</p>";
     }
 
 if (isset($_GET["loguit"])) {
@@ -55,6 +52,7 @@ if (isset($_GET["loguit"])) {
     </table>
 </form>
 <a href="index.php">Hoofdpagina</a>
+<a href="admin.php">Adminpagina</a>
 <a href="login.php?loguit">Uitloggen</a>
 </body>
 </html>
