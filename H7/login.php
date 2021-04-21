@@ -51,8 +51,8 @@ if (isset($_GET["loguit"])) {
         </tr>
     </table>
 </form>
-<a href="index.php">Hoofdpagina</a>
-<a href="admin.php">Adminpagina</a>
+<a href="index.php">Hoofdpagina</a><br>
+<a href="admin.php">Adminpagina</a><br>
 <a href="login.php?loguit">Uitloggen</a>
 </body>
 </html>
